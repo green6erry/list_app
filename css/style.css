@@ -1,0 +1,158 @@
+body {
+	text-align: center;
+}
+
+
+
+
+
+#nav-bar {
+	display: inline-block;
+	width: 100%;
+	background-color: beige;
+}
+
+#nav-bar > * {
+	float:right;
+	direction: ltr;
+}
+
+#nav-bar ul {
+	text-align: right;
+}
+#nav-bar ul li {
+	list-style-type: none;
+	display: block;
+}
+
+#nav-bar p {
+	float: right
+}
+
+
+.right {
+	/*display: block;*/
+	/*position: relative;*/
+	float: right;
+}
+
+.finished{
+	opacity: .4;
+	text-decoration: line-through;
+	cursor: pointer;
+}
+
+#table-container {
+	width: 80%;
+	display: block;
+	margin: 2em auto;
+}
+
+#table-container td, #table-container th {
+	/*outline: 1px solid #222;*/
+	font-size: 80%;
+}
+
+/*#table-top {
+	position: absolute;
+}*/
+
+#table-listed{
+	/*position: absolute;*/
+	top:3em;
+}
+
+#table-listed td, #table-listed th{
+	margin-top: 1em;
+}
+
+
+td:nth-child(1), th:nth-child(1) {
+	width: 20em;
+}
+
+td:nth-child(2), th:nth-child(2)  {
+	width: 5em;
+}
+
+td:nth-child(3), th:nth-child(3)  {
+	width: 5em;
+}
+
+td:nth-child(4), th:nth-child(4)  {
+	width: 5em;
+}
+
+td:nth-child(5), th:nth-child(5)  {
+	width: 5em;
+}
+
+
+/*list item controls*/
+
+textarea {
+  	border: 0;
+  	/*font: 14px Georgia, Serif;*/
+  	overflow: visible;
+	text-align: center;
+  	background-color: inherit;
+  	resize: none;
+  	white-space: none;
+}
+
+.item-row textarea {
+	display: inline-flex;
+	padding:0;
+	margin: 0 auto;
+	height: 1.5em;
+}
+
+
+textarea.moneyNumber {
+	width: 60%;
+	float: right;
+	line-height: 160%;
+	vertical-align: center;
+	text-align: left;
+}
+
+textarea.symbol {
+	width: 30%;
+	text-align: right;
+	margin-top: 2px;
+
+}
+
+.check-off {
+	cursor: pointer;
+}
+
+.delete {
+	cursor: pointer;
+}
+
+.meListed {
+	list-style-type: circle;
+}
+
+
+
+
+
+
+svg {
+  stroke: none;
+  fill: none;
+  display: none;
+  position: absolute;
+}
+
+canvas {
+  position: absolute;
+  display: block;
+  margin: -100px -100px;
+  bottom: 30%;
+  right: 30%;
+}
+
+-webkit-print-color-adjust: exact;
