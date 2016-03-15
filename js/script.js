@@ -354,7 +354,7 @@ $('#list').on('click', '.check-off', function(){
 
   update_total();
   
-  newRowTotal = row.find(subtotal).val();
+  newRowTotal = oldRowTotal;
 
 });
 
