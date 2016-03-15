@@ -7,7 +7,7 @@ console.log('Hello!');
 var submissions = 0; /*number of list items to start*/
 var checkOff = '<span class="check-off">&#10004;</span>'; /*make it look different*/
 var xOff = '<span class="delete">&#10008;</span>';
-var tableHeader = '<th> Item </th><th> Quantity </th><th> Price </th><th> Sales Tax </th><th> Subtotal </th>';
+var tableHeader = '<th></th><th> Item </th><th> Quantity </th><th> Price </th><th> Sales Tax </th><th> Subtotal </th><th></th>';
 
 
 
@@ -82,7 +82,8 @@ function roundNumber(number,decimals) {
         var rowtotal = Number(subtotal + taxtotal);
 
 
-		var postTable = '<tr class="item-row"><td><textarea>'+me+'</textarea></td><td><textarea>'+qty+'</textarea></td><td><textarea class="symbol">'+currencySymbol+'</textarea><span class="price"><textarea class="moneyNumber">'+roundNumber(price,2)+'</textarea></span></td><td><textarea class="symbol">'+currencySymbol+'</textarea><span class="tax-total"><textarea class="moneyNumber">'+roundNumber(taxtotal,2)+'</textarea></span></td><td><textarea class="symbol">'+currencySymbol+'</textarea><span class="rowTotal moneyNumber">'+roundNumber(rowtotal,2)+'</span></td></tr>';
+
+		var postTable = '<tr class="item-row"><td>'+checkOff+'</td><td><textarea>'+me+'</textarea></td><td><textarea>'+qty+'</textarea></td><td><textarea class="symbol">'+currencySymbol+'</textarea><span class="price"><textarea class="moneyNumber">'+roundNumber(price,2)+'</textarea></span></td><td><textarea class="symbol">'+currencySymbol+'</textarea><span class="tax-total"><textarea class="moneyNumber">'+roundNumber(taxtotal,2)+'</textarea></span></td><td><textarea class="symbol">'+currencySymbol+'</textarea><span class="rowTotal moneyNumber">'+roundNumber(rowtotal,2)+'</span></td><td>'+xOff+'</td></tr>';
 		
 		$('#table-top').after(postTable);
 		$('#name').val('');
@@ -114,7 +115,7 @@ function roundNumber(number,decimals) {
 function update_total() {
   var total = 0;
   $('.rowTotal').each(function(i){
-    	subtotal = $(this).html().replace("Total: $","");
+    	subtotal = $(this).html();
    	 	if (!isNaN(subtotal)) total += Number(subtotal);
   		});
   total = roundNumber(total,2);
@@ -202,7 +203,6 @@ $(document).on("click", ".delete", function(){
 
 
 var colors = ["#EDEEC0", "#ED7B84", "#7397C3", "#7EB77F"];
-
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 var pathPointsFrom, pathPointsTo, pathPointsNow;
@@ -214,7 +214,6 @@ var interpolationPoint = {
 };
 ctx.lineWidth = 4;
 ctx.lineCap = "round";
-
 function drawPathToCanvas() {
   var thisColor, lastColor = getColorSegment(0);
   ctx.strokeStyle = lastColor;
@@ -240,7 +239,6 @@ function drawPathToCanvas() {
   ctx.closePath();
   ctx.stroke();
 }
-
 function samplePath(pathSelector) {
   var path = document.getElementById(pathSelector);
   var length = path.getTotalLength();
@@ -250,7 +248,6 @@ function samplePath(pathSelector) {
   }
   return points;
 }
-
 function interpolatePaths() {
   var points = [];
   for (var i = 0; i <= steps; i++) {
@@ -261,16 +258,13 @@ function interpolatePaths() {
   }
   return points;
 }
-
 function getColorSegment(i) {
   var p = i / steps + offset;
   if (p > 1) p = p - 1;
   var point = Math.floor(p * 4);
   return colors[point];
 }
-
 var paths = [samplePath("circle-path"), samplePath("rect-path"), samplePath("triangle-path")];
-
 function loop() {
   ctx.clearRect(0, 0, 200, 200);
   offset = offset + 0.009;
@@ -279,7 +273,6 @@ function loop() {
   drawPathToCanvas();
   requestAnimationFrame(loop);
 }
-
 function tweenPaths() {
   pathPointsFrom = paths[pathCount];
   if (pathCount + 1 <= 2) pathPointsTo = paths[pathCount + 1];
@@ -331,7 +324,20 @@ function print_today() {
 }
 $('#date').append(print_today());
 
+// Make them all sortable pleeeease
 
+var fixHelper = function(e, ui) {  
+  ui.children().each(function() {  
+    $(this).width($(this).width());  
+  });  
+  return ui;  
+};
+
+$('#list > tbody').sortable({  
+ helper: fixHelper,
+ cancel: ('.ui-state-disabled'),
+ items: "tr:not(.ui-state-disabled)"
+ }).disableSelection('.ui-state-disabled'); 
 
 
 

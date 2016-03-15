@@ -9,6 +9,8 @@
 	<script src="http://code.jquery.com/jquery-2.2.1.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
 
+	<script src="js/jquery-ui.min.js"></script>
+
 	<script type="text/javascript" src="http://openexchangerates.github.io/money.js/money.min.js"></script>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/plugins/CSSPlugin.min.js"></script>
@@ -24,11 +26,11 @@
 <ul>
 	<li>
 		<button id="reset" class="right">Reset</button>
+		</li>
+	<li>
+		<p>Sales Tax: </p> <input id="tax" class="right inline" label="Sales Tax: " placeholder="Sales tax" value=".06">
 
-		<p>Sales Tax: </p><input id="tax" class="right" placeholder="Sales tax" value=".06">
-
-
-		<select id="currency-state" class="right">
+<!-- 		<select id="currency-state" class="right">
 		<option disabled="true"> State </option>
 		<option value="AL">Alabama</option>
 		<option value="AK">Alaska</option>
@@ -90,10 +92,10 @@
 	  <option value="euro">Euro</option>
 	  <option value="pound">UK Pound</option>
 	  <option value="swedKron">Swedish Kroner</option>
-		</select>
+		</select> -->
 	</li>
 
-	<li class="right">
+	<li>
 		<p>The date is 
 			<span id="date"></span>.
 		</p>
@@ -131,7 +133,7 @@
 
 <div id="table-container">
 	<table id='list'>
-		<tr id="table-top"></tr>
+		<tr id="table-top" class="ui-state-disabled"></tr>
 		<!-- <tr id="table-listed"></tr> -->
 	</table>
 		
@@ -153,7 +155,7 @@
 	  	<path id="circle-path" d="
 	M10,100a90,90 0 1,0 180,0a90,90 0 1,0 -180,0
 	"/>
-	  	<path id="rect-path" d="M180,9 10,10 9,180 180,180 Z20,10" />
+	  	<path id="rect-path" d="M180,9 10,10 9,180 180,180 180,10" />
 	  
 	  	<path id="triangle-path" d="M100,40 170,160 30,160 100,40" />
 	</svg>

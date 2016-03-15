@@ -3,36 +3,41 @@ body {
 }
 
 
+#nav-bar input {
+	display: inline-block;
+}
 
-
-
+/*
 #nav-bar {
 	display: inline-block;
 	width: 100%;
 	background-color: beige;
 }
 
-#nav-bar > * {
+*/#nav-bar > * {
 	float:right;
 	direction: ltr;
 }
-
+/*
 #nav-bar ul {
 	text-align: right;
 }
 #nav-bar ul li {
 	list-style-type: none;
-	display: block;
+	display: inline-block;
 }
 
 #nav-bar p {
 	float: right
 }
+*/
 
-
+.inline {
+	display: inline-block;
+}
 .right {
-	/*display: block;*/
-	/*position: relative;*/
+	display: block;
+	position: relative;
 	float: right;
 }
 
@@ -53,18 +58,11 @@ body {
 	font-size: 80%;
 }
 
-/*#table-top {
-	position: absolute;
-}*/
-
-#table-listed{
-	/*position: absolute;*/
-	top:3em;
+#list li {
+	list-style-type: none;
+	display: inline-flex;
 }
 
-#table-listed td, #table-listed th{
-	margin-top: 1em;
-}
 
 
 td:nth-child(1), th:nth-child(1) {
@@ -89,6 +87,12 @@ td:nth-child(5), th:nth-child(5)  {
 
 
 /*list item controls*/
+
+
+#list > tbody> tr{
+	color:blue;
+	background-color: cornflowerblue;
+}
 
 textarea {
   	border: 0;
@@ -154,5 +158,7 @@ canvas {
   bottom: 30%;
   right: 30%;
 }
+
+
 
 -webkit-print-color-adjust: exact;
