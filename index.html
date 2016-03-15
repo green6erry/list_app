@@ -25,10 +25,11 @@
 
 <ul>
 	<li>
-		<button id="reset" class="right">Reset</button>
+		<button id="reset">Reset</button>
 		</li>
 	<li>
-		<p>Sales Tax: </p> <input id="tax" class="right inline" label="Sales Tax: " placeholder="Sales tax" value=".06">
+		Sales Tax:
+		<input id="tax" class="right" label="Sales Tax: " placeholder="Sales tax" value=".06" length="10">
 
 <!-- 		<select id="currency-state" class="right">
 		<option disabled="true"> State </option>
@@ -95,10 +96,9 @@
 		</select> -->
 	</li>
 
-	<li>
-		<p>The date is 
-			<span id="date"></span>.
-		</p>
+	<li class="right">
+		The date is: <br  /> 
+			<span id="date"></span>
 	</li>
 </ul>
 
@@ -147,9 +147,6 @@
 	<button id="colorssButt">Distraction yo self!
 	</button>
 
-	<p>
-		<span id='triangular'>&#x25b3</span>
-		<span id='circular'>&#x25ef</span>
 
 	<svg id="svg" width="200" height="200" viewBox="0 0 200 200">
 	  	<path id="circle-path" d="
@@ -163,7 +160,6 @@
 	<canvas id="canvas" width="200" height="200">
 	</canvas>
 </div>
-
 
 
 

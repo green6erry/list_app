@@ -3,49 +3,46 @@ body {
 }
 
 
-#nav-bar input {
-	display: inline-block;
-}
-
-/*
-#nav-bar {
-	display: inline-block;
-	width: 100%;
-	background-color: beige;
-}
-
-*/#nav-bar > * {
-	float:right;
-	direction: ltr;
-}
-/*
-#nav-bar ul {
-	text-align: right;
-}
-#nav-bar ul li {
+#nav-bar li {
 	list-style-type: none;
-	display: inline-block;
+	display: block;
+	/*width: 100%;*/
+	text-align: right;
+	padding:.3em;
+
 }
 
-#nav-bar p {
-	float: right
-}
-*/
 
-.inline {
-	display: inline-block;
+#tax{
+	width: 3em;
+
+
 }
 .right {
-	display: block;
-	position: relative;
+
 	float: right;
 }
 
-.finished{
-	opacity: .4;
-	text-decoration: line-through;
+
+
+
+
+
+.finished, .finished input{
+	color: gray;
 	cursor: pointer;
+	background-color: orange;
+	text-decoration: line-through;
 }
+
+.finished input{
+	opacity: ;
+	color: gray;
+	cursor: pointer;
+	background-color: orange;
+}
+
+
 
 #table-container {
 	width: 80%;
@@ -53,21 +50,47 @@ body {
 	margin: 2em auto;
 }
 
-#table-container td, #table-container th {
-	/*outline: 1px solid #222;*/
-	font-size: 80%;
+
+#list th{
+	color:blue;
+	background-color: cornflowerblue;
 }
 
-#list li {
-	list-style-type: none;
-	display: inline-flex;
+/*list item controls*/
+
+/*cross off */
+
+td:nth-child(1), #list th:nth-child(1), td:nth-child(7), #list th:nth-child(7) {
+	background-color: white;
+}
+
+/*delete */
+td:nth-child(6), th:nth-child(6)  {
+	width: 5em;
+}
+
+.check-off {
+	cursor: pointer;
+}
+
+.check-off:hover {
+	color:forestgreen;
+}
+
+.delete {
+	cursor: pointer;
+}
+
+.delete:hover {
+	color: red;
 }
 
 
 
-td:nth-child(1), th:nth-child(1) {
-	width: 20em;
-}
+
+/*list general item formatting */
+
+
 
 td:nth-child(2), th:nth-child(2)  {
 	width: 5em;
@@ -85,34 +108,26 @@ td:nth-child(5), th:nth-child(5)  {
 	width: 5em;
 }
 
-
-/*list item controls*/
-
-
-#list > tbody> tr{
-	color:blue;
-	background-color: cornflowerblue;
-}
-
-textarea {
-  	border: 0;
-  	/*font: 14px Georgia, Serif;*/
-  	overflow: visible;
-	text-align: center;
-  	background-color: inherit;
-  	resize: none;
-  	white-space: none;
-}
-
-.item-row textarea {
-	display: inline-flex;
-	padding:0;
-	margin: 0 auto;
-	height: 1.5em;
+td:nth-child(5), th:nth-child(5)  {
+	width: 5em;
 }
 
 
-textarea.moneyNumber {
+
+#list input{
+	background-color: inherit;
+	border: none;
+
+}
+
+input.symbol{
+	width: 30%;
+	text-align: right;
+	margin-top: 2px;
+
+}
+
+input.moneyNumber {
 	width: 60%;
 	float: right;
 	line-height: 160%;
@@ -120,28 +135,14 @@ textarea.moneyNumber {
 	text-align: left;
 }
 
-textarea.symbol {
-	width: 30%;
-	text-align: right;
-	margin-top: 2px;
-
-}
-
-.check-off {
-	cursor: pointer;
-}
-
-.delete {
-	cursor: pointer;
-}
-
-.meListed {
-	list-style-type: circle;
+input.itemName {
+	width: 80%;
 }
 
 
 
 
+/*Color distraction */
 
 
 svg {

@@ -10,10 +10,6 @@ var xOff = '<span class="delete">&#10008;</span>';
 var tableHeader = '<th></th><th> Item </th><th> Quantity </th><th> Price </th><th> Sales Tax </th><th> Subtotal </th><th></th>';
 
 
-
-// Define table things?
-var rows = 0; //number of initial rows in table should be 0
-
 $('#table-top').prepend(tableHeader);
 
 
@@ -83,7 +79,7 @@ function roundNumber(number,decimals) {
 
 
 
-		var postTable = '<tr class="item-row"><td>'+checkOff+'</td><td><textarea>'+me+'</textarea></td><td><textarea>'+qty+'</textarea></td><td><textarea class="symbol">'+currencySymbol+'</textarea><span class="price"><textarea class="moneyNumber">'+roundNumber(price,2)+'</textarea></span></td><td><textarea class="symbol">'+currencySymbol+'</textarea><span class="tax-total"><textarea class="moneyNumber">'+roundNumber(taxtotal,2)+'</textarea></span></td><td><textarea class="symbol">'+currencySymbol+'</textarea><span class="rowTotal moneyNumber">'+roundNumber(rowtotal,2)+'</span></td><td>'+xOff+'</td></tr>';
+		var postTable = '<tr class="item-row"><td>'+checkOff+'</td><td><input maxlength="20" class="itemName" value="'+me+'"></td><td><input maxlength="4" class="itemName" id="itemQty" value="'+qty+'"></td><td><input maxlength="1" class="symbol" value="'+currencySymbol+'"><span class="price"><input maxlength="20" class="moneyNumber" value="'+roundNumber(price,2)+'"></span></td><td><input maxlength="1" class="symbol" value="'+currencySymbol+'"><span class="tax-total"><input maxlength="10" class="moneyNumber" value="'+roundNumber(taxtotal,2)+'"></span></td><td><input maxlength="1" class="symbol" value="'+currencySymbol+'"><span class="rowTotal moneyNumber">'+roundNumber(rowtotal,2)+'</span><span class="rowTotal moneyNumber" style="display:none">0</span></td><td>'+xOff+'</td></tr>';
 		
 		$('#table-top').after(postTable);
 		$('#name').val('');
@@ -160,6 +156,7 @@ $(document).keydown(function (event) {
 });
 
 // Edit diffternt numbers
+// no worky right now
 
 function update_price() {
   var row = $(this).parents('.item-row');
@@ -335,12 +332,31 @@ var fixHelper = function(e, ui) {
 
 $('#list > tbody').sortable({  
  helper: fixHelper,
- cancel: ('.ui-state-disabled'),
- items: "tr:not(.ui-state-disabled)"
- }).disableSelection('.ui-state-disabled'); 
+ // cancel: ('.ui-state-disabled'),
+ items: "tr:not(.ui-state-disabled, .finished)"
+ }).disableSelection('.ui-state-disabled', '.finished'); 
 
 
+$('#list').on('click', '.delete', function(){
+  $(this).parent().parent().remove();
+  console.log("Don't need to see this");
+  update_total();
+});
+
+$('#list').on('click', '.check-off', function(){
+  $(this).toggleClass('finished');
+
+  var row = $(this).parents('.item-row');
+  row.toggleClass('finished');
+  var oldRowTotal = row.find('span.rowTotal').val();
+  var newRowTotal = row.find('span.rowTotal').empty();
+  // row.find('span.rowTotal').html(newRowTotal);
+
+  update_total();
+  
+  newRowTotal = row.find(subtotal).val();
 
 });
 
 
+});
