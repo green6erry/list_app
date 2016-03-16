@@ -98,7 +98,8 @@ function roundNumber(number,decimals) {
 			{	marginTop: "10px"}, //bring item location to original spot. Could you use this same syntax to consolidate the css above?
 			{	queue: false, duration: "fast"}
 		);
-	};
+	playAddSound()
+  };
 
 
 	// need to make cash register sound
@@ -185,13 +186,9 @@ $(document).on("click", "#reset", function(){
 // Delete Items
 	// make sound and animate please
 
-$(document).on("click", ".delete", function(){
-    $(this).closest('p').fadeOut(300);
-});
-
-
-// Check off Items
-	// make ta-da sound please
+// $(document).on("click", ".delete", function(){
+//     $(this).closest('p').fadeOut(300);
+// });
 
 
 
@@ -333,26 +330,36 @@ var fixHelper = function(e, ui) {
   return ui;  
 };
 
-$('#list > tbody').sortable({  
- helper: fixHelper,
- // cancel: ('.ui-state-disabled'),
- items: "tr:not(.ui-state-disabled, .finished)"
- }).disableSelection('.ui-state-disabled', '.finished'); 
+
+  $('#list > tbody').sortable({  
+   helper: fixHelper,
+   items: "tr:not(.ui-state-disabled, .finished)"
+   }
+   ).disableSelection('.ui-state-disabled', '.finished'); 
 
 
-$('#list td:nth-child(1)').hide();
-$('#list td').on('hover', 'td:nth-child(1)', function () {
-  $(this).show();
-});
+  $('#list td:nth-child(1)').hide();
+  $('#list td').on('hover', 'td:nth-child(1)', function () {
+    $(this).show();
+    playPopSound();
+  });
+
 
 var clicked = false
 
+// Delete stuff
 $('#list').on('click', '.delete', function(){
   $(this).parent().parent().remove();
   console.log("Goobye");
   update_total();
+  playDeleteSound();
 });
 
+
+
+
+
+// old attempt to clear number but not completley clear
 $('#list').on('click', '.check-off', function(){
   $(this).toggleClass('finished');
   var row = $(this).parents('.item-row');
@@ -363,6 +370,18 @@ $('#list').on('click', '.check-off', function(){
   
 
   update_total();
+  playFinishSound();
+
+
+  var price = Number(document.getElementById('price').value);
+    var qty = Number(document.getElementById('qty').value);
+    var tax = Number(document.getElementById('tax').value);
+    var currencySymbol = '$';
+    var subtotal = qty * price;
+    var taxtotal = Number(tax * subtotal);
+    var rowtotal = Number(subtotal + taxtotal);
+
+    $('#list td.rowTotal').html(rowtotal);
 
   // var newSubTotal = Number(row.find(".itemQty").val() + row.find(".price").val().replace("$",""));
   // var newTaxTotal = Number(newSubTotal * row.find('.tax').val());
@@ -372,5 +391,29 @@ $('#list').on('click', '.check-off', function(){
 
 });
 
+
+function playAddSound() {
+  $('#addSound')[0].volume = 0.5;
+  $('#addSound')[0].load();
+  $('#addSound')[0].play();
+}
+
+function playFinishSound() {
+  $('#finishSound')[0].volume = 0.5;
+  $('#finishSound')[0].load();
+  $('#finishSound')[0].play();
+}
+
+function playDeleteSound() {
+  $('#deleteSound')[0].volume = 0.5;
+  $('#deleteSound')[0].load();
+  $('#deleteSound')[0].play();
+}
+
+function playPopSound() {
+  $('#popSound')[0].volume = 0.5;
+  $('#popSound')[0].load();
+  $('#popSound')[0].play();
+}
 
 });
