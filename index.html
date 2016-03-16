@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<title>List App</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Satisfy' rel='stylesheet' type='text/css'>
 	<script src="http://code.jquery.com/jquery-2.2.1.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
 
@@ -24,10 +24,7 @@
 <div class="" id="nav-bar">
 
 <ul>
-	<li>
-		<button id="reset">Reset</button>
-		</li>
-	<li>
+	<li id="taxBox">
 		Sales Tax:
 		<input id="tax" class="right" label="Sales Tax: " placeholder="Sales tax" value=".06" length="10">
 
@@ -95,11 +92,9 @@
 	  <option value="swedKron">Swedish Kroner</option>
 		</select> -->
 	</li>
+	<br  />
+	<br  />
 
-	<li class="right">
-		The date is: <br  /> 
-			<span id="date"></span>
-	</li>
 </ul>
 
 </div>
@@ -108,8 +103,11 @@
 
 
 <div class="" id="header">
-	<h1>Shopping List</h1>
-	<h4><span id="" class="">AGB Design</span></h4>
+	<h1 alt="YEAYURRRRRRRR GO BUY STUFFFFFFF DO IT DO IT DO IT">Shopping List</h1>
+
+	<div id="headerBreak"></div>
+
+	<h4><span id="" class=""><a href="agb.rocks">AGB Design</a></span></h4>
 </div>
 
 <hr>
@@ -123,7 +121,7 @@
 
 	<input id="qty" placeholder="Quantity">
 
-	<button id="enter">add</button>
+	<button id="enter">Add!</button>
 
 </div>
 
@@ -141,7 +139,10 @@
 
 </div>
 
-	
+	<div class="left">
+	Today's Date <br  /> 
+			<span id="date"></span>
+			</div>
 
 <div id="distraction1">
 	<button id="colorssButt">Distraction yo self!
@@ -159,6 +160,7 @@
 	
 	<canvas id="canvas" width="200" height="200">
 	</canvas>
+<button id="reset">Reset</button>
 </div>
 
 

@@ -74,12 +74,13 @@ function roundNumber(number,decimals) {
 		var tax = Number(document.getElementById('tax').value);
 		var currencySymbol = '$';
 		var subtotal = qty * price;
-        var taxtotal = Number(tax * subtotal);
-        var rowtotal = Number(subtotal + taxtotal);
+    var taxtotal = Number(tax * subtotal);
+    var rowtotal = Number(subtotal + taxtotal);
 
 
 
-		var postTable = '<tr class="item-row"><td>'+checkOff+'</td><td><input maxlength="20" class="itemName" value="'+me+'"></td><td><input maxlength="4" class="itemName" id="itemQty" value="'+qty+'"></td><td><input maxlength="1" class="symbol" value="'+currencySymbol+'"><span class="price"><input maxlength="20" class="moneyNumber" value="'+roundNumber(price,2)+'"></span></td><td><input maxlength="1" class="symbol" value="'+currencySymbol+'"><span class="tax-total"><input maxlength="10" class="moneyNumber" value="'+roundNumber(taxtotal,2)+'"></span></td><td><input maxlength="1" class="symbol" value="'+currencySymbol+'"><span class="rowTotal moneyNumber">'+roundNumber(rowtotal,2)+'</span><span class="rowTotal moneyNumber" style="display:none">0</span></td><td>'+xOff+'</td></tr>';
+
+		var postTable = '<tr class="item-row"><td>'+checkOff+'</td><td><input maxlength="20" class="itemName" value="'+me+'"></td><td><input maxlength="4" class="itemName itemQty" value="'+qty+'"></td><td><input maxlength="1" class="symbol" value="'+currencySymbol+'"><span class="price"><input maxlength="20" class="moneyNumber" value="'+roundNumber(price,2)+'"></span></td><td><input maxlength="1" class="symbol" value="'+currencySymbol+'"><span class="tax-total"><input maxlength="10" class="moneyNumber" value="'+roundNumber(taxtotal,2)+'"></span></td><td><input maxlength="1" class="symbol" value="'+currencySymbol+'"><span class="rowTotal moneyNumber">'+roundNumber(rowtotal,2)+'</span><span class="rowTotal moneyNumber" style="display:none">0</span></td><td>'+xOff+'</td></tr>';
 		
 		$('#table-top').after(postTable);
 		$('#name').val('');
@@ -145,7 +146,9 @@ $(document).on("click", "#enter", function(){
 
 // Allow 'enter' to submit Item
 
-
+function deleteLastEntry () {
+  
+}
 
 $(document).keydown(function (event) {
 	if (event.keyCode == 13) {
@@ -337,6 +340,13 @@ $('#list > tbody').sortable({
  }).disableSelection('.ui-state-disabled', '.finished'); 
 
 
+$('#list td:nth-child(1)').hide();
+$('#list td').on('hover', 'td:nth-child(1)', function () {
+  $(this).show();
+});
+
+var clicked = false
+
 $('#list').on('click', '.delete', function(){
   $(this).parent().parent().remove();
   console.log("Don't need to see this");
@@ -345,16 +355,19 @@ $('#list').on('click', '.delete', function(){
 
 $('#list').on('click', '.check-off', function(){
   $(this).toggleClass('finished');
-
   var row = $(this).parents('.item-row');
   row.toggleClass('finished');
-  var oldRowTotal = row.find('span.rowTotal').val();
-  var newRowTotal = row.find('span.rowTotal').empty();
-  // row.find('span.rowTotal').html(newRowTotal);
+  
+  row.find('.rowTotal').empty();
+  
 
   update_total();
-  
-  newRowTotal = oldRowTotal;
+
+  // var newSubTotal = Number(row.find(".itemQty").val() + row.find(".price").val().replace("$",""));
+  // var newTaxTotal = Number(newSubTotal * row.find('.tax').val());
+  // var newRowTotal = Number(roundNumber((newSubTotal + newTaxTotal),2));
+  //   row.find('.rowTotal').html(newRowTotal);
+  //   row.find('.tax-total').html(newTaxTotal);
 
 });
 
