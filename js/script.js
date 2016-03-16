@@ -112,7 +112,7 @@ function roundNumber(number,decimals) {
 
 function update_total() {
   var total = 0;
-  $('.rowTotal').each(function(i){
+  $('.item-row:not(.finished) .rowTotal').each(function(i){
     	subtotal = $(this).html();
    	 	if (!isNaN(subtotal)) total += Number(subtotal);
   		});
@@ -364,30 +364,11 @@ $('#list').on('click', '.check-off', function(){
   $(this).toggleClass('finished');
   var row = $(this).parents('.item-row');
   row.toggleClass('finished');
-  
-  row.find('.rowTotal').empty();
   console.log("I got it, I got iiiiiiit")
   
 
   update_total();
   playFinishSound();
-
-
-  var price = Number(document.getElementById('price').value);
-    var qty = Number(document.getElementById('qty').value);
-    var tax = Number(document.getElementById('tax').value);
-    var currencySymbol = '$';
-    var subtotal = qty * price;
-    var taxtotal = Number(tax * subtotal);
-    var rowtotal = Number(subtotal + taxtotal);
-
-    $('#list td.rowTotal').html(rowtotal);
-
-  // var newSubTotal = Number(row.find(".itemQty").val() + row.find(".price").val().replace("$",""));
-  // var newTaxTotal = Number(newSubTotal * row.find('.tax').val());
-  // var newRowTotal = Number(roundNumber((newSubTotal + newTaxTotal),2));
-  //   row.find('.rowTotal').html(newRowTotal);
-  //   row.find('.tax-total').html(newTaxTotal);
 
 });
 
