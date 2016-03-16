@@ -80,7 +80,7 @@ function roundNumber(number,decimals) {
 
 
 
-		var postTable = '<tr class="item-row"><td>'+checkOff+'</td><td><input maxlength="20" class="itemName" value="'+me+'"></td><td><input maxlength="4" class="itemName itemQty" value="'+qty+'"></td><td><input maxlength="1" class="symbol" value="'+currencySymbol+'"><span class="price"><input maxlength="20" class="moneyNumber" value="'+roundNumber(price,2)+'"></span></td><td><input maxlength="1" class="symbol" value="'+currencySymbol+'"><span class="tax-total"><input maxlength="10" class="moneyNumber" value="'+roundNumber(taxtotal,2)+'"></span></td><td><input maxlength="1" class="symbol" value="'+currencySymbol+'"><span class="rowTotal moneyNumber">'+roundNumber(rowtotal,2)+'</span><span class="rowTotal moneyNumber" style="display:none">0</span></td><td>'+xOff+'</td></tr>';
+		var postTable = '<tr class="item-row"><td>'+checkOff+'</td><td><input maxlength="20" class="itemName" value="'+me+'"></td><td><input maxlength="4" class="itemName itemQty" value="'+qty+'"></td><td><input maxlength="1" class="symbol" value="'+currencySymbol+'"><span class="price"><input maxlength="20" class="moneyNumber" value="'+roundNumber(price,2)+'"></span></td><td><input maxlength="1" class="symbol" value="'+currencySymbol+'"><span class="tax-total"><input maxlength="10" class="moneyNumber" value="'+roundNumber(taxtotal,2)+'"></span></td><td><input maxlength="1" class="symbol" value="'+currencySymbol+'"><span class="rowTotal moneyNumber">'+roundNumber(rowtotal,2)+'</span></td><td>'+xOff+'</td></tr>';
 		
 		$('#table-top').after(postTable);
 		$('#name').val('');
@@ -116,7 +116,7 @@ function update_total() {
    	 	if (!isNaN(subtotal)) total += Number(subtotal);
   		});
   total = roundNumber(total,2);
-  $('#idTotal').html("Total: $"+total);
+  $('#idTotal').html("$"+total);
 
 }
 
@@ -147,7 +147,7 @@ $(document).on("click", "#enter", function(){
 // Allow 'enter' to submit Item
 
 function deleteLastEntry () {
-  
+
 }
 
 $(document).keydown(function (event) {
@@ -349,7 +349,7 @@ var clicked = false
 
 $('#list').on('click', '.delete', function(){
   $(this).parent().parent().remove();
-  console.log("Don't need to see this");
+  console.log("Goobye");
   update_total();
 });
 
@@ -359,6 +359,7 @@ $('#list').on('click', '.check-off', function(){
   row.toggleClass('finished');
   
   row.find('.rowTotal').empty();
+  console.log("I got it, I got iiiiiiit")
   
 
   update_total();

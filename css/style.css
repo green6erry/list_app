@@ -42,7 +42,7 @@ a {
 
 }
 
-#headerBreak {
+.headerBreak {
 	margin: 0 auto;
 	height: 2px;
 	width: 45%;
@@ -170,6 +170,7 @@ td:nth-child(6), th:nth-child(6)  {
 
 .check-off {
 	cursor: pointer;
+	padding-right: .4em;
 }
 
 .check-off:hover {
@@ -179,6 +180,7 @@ td:nth-child(6), th:nth-child(6)  {
 
 .delete {
 	cursor: pointer;
+	padding-left: .4em;
 }
 
 .delete:hover {
@@ -202,7 +204,7 @@ table td, table th {
 
 
 td:nth-child(2), th:nth-child(2)  {
-	width: 5em;
+	min-width: 5em;
 }
 
 td:nth-child(3), th:nth-child(3)  {
@@ -220,7 +222,6 @@ td:nth-child(5), th:nth-child(5)  {
 td:nth-child(5), th:nth-child(5)  {
 	width: 5em;
 }
-
 
 
 #list input{
@@ -243,16 +244,44 @@ input.moneyNumber {
 	line-height: 160%;
 	vertical-align: center;
 	text-align: left;
+	padding: 0;
 }
 
 input.itemName {
 	width: 80%;
+	text-align: center;
 }
 
-#idTotal {
-	margin-top: 2em;
+.totalBreak {
+	margin: 2em auto;
+	height: 2px;
+	width: 45%;
+	color: lightblue;
+	background-color: lightblue;
+	border-style: none;
+	display: block;
 }
 
+#totalBox {
+	background-color: lightblue;
+	padding: .3em .1em .3em .3em;
+	min-width: 5em;
+	margin: 0 auto;
+	display: inline-block;
+	text-align: center;
+	overflow: auto;
+}
+
+#totalBox:hover {
+	background-color: lavender;
+}
+
+span.total  {
+	/*margin-top: 2em;*/
+	background-color: white;
+	margin: .3em;
+	padding: 0 .2em 0 .3em;
+}
 
 /*Color distraction */
 
