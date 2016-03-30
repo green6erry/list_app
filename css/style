@@ -1,0 +1,306 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+body {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    overflow-wrap: break-word;
+    resize: vertical;
+    overflow: visible;
+    margin: 1em;
+    padding: 0;
+}
+
+input, td {
+    font-size: 1em;
+    overflow-wrap: break-word;
+    overflow: visible;
+    resize: vertical;
+    -webkit-appearance: none;
+    z-index: 99;
+    word-wrap: break-word;
+    flex-wrap: all;
+}
+
+a {
+    text-decoration: inherit;
+    color: inherit;
+
+}
+
+#header h1 {
+    margin: 0 auto;
+    margin-bottom: .7em;
+    display: block;
+    width: 40%;
+    text-align: center;
+}
+
+#header h4 {
+    margin: 1em 1em 2em 1em;
+
+}
+
+.headerBreak {
+    margin: 0 auto;
+    height: 2px;
+    width: 45%;
+    color: lightblue;
+    background-color: lightblue;
+    border-style: none;
+    display: block;
+}
+
+#nav-bar li {
+    list-style-type: none;
+    display: block;
+    /*width: 100%;*/
+    text-align: right;
+    padding: .3em;
+
+}
+
+
+#tax {
+    width: 3em;
+    margin: 0 0 0 .3em;
+    padding: 0 0 0 .2em;
+    font-family: 'Montserrat';
+    text-indent: none;
+    -webkit-appearance: textfield;
+    outline: none;
+    border: none;
+    background-color: white;
+}
+
+#taxBox {
+    background-color: lightblue;
+    width: 9em;
+    float: right;
+}
+
+
+#date {
+    background-color: white;
+    padding: 3px;
+    /*outline:2px solid blue;*/
+    display: block;
+    margin-top: 4px;
+    font-variant: normal;
+    text-transform: none;
+    font-size: 80%;
+    font-family: 'Satisfy', cursive;
+
+
+}
+
+.right {
+    
+    float: right;
+}
+
+.left {
+    position: absolute;
+    text-transform: uppercase;
+    font-size: 130%;
+    top: 15px;
+    float: left;
+    padding: .3em;
+    background-color: lightblue;
+}
+
+button {
+    font-family: 'Montserrat';
+    margin: 0 .5em;
+}
+
+
+.input-section input {
+    font-family: 'Satisfy', cursive;
+
+}
+
+
+
+.finished, .finished input {
+    color: lightgray;
+    cursor: pointer;
+    /*background-color: orange;*/
+    text-decoration: line-through;
+
+}
+
+.finished input {
+    opacity: ;
+    color: gray;
+    cursor: pointer;
+    background-color: orange;
+}
+
+
+
+#table-container {
+    width: 80%;
+    display: block;
+    margin: 2em auto;
+}
+
+
+#list th {
+    
+    background-color: lightblue;
+    border-radius: 0 15px;
+    padding: 4px;
+    margin: 0 6px;
+}
+
+/*list item controls*/
+
+/*cross off */
+
+td:nth-child(1), #list th:nth-child(1), td:nth-child(7), #list th:nth-child(7) {
+    background-color: white;
+}
+
+/*delete */
+td:nth-child(6), th:nth-child(6) {
+    width: 5em;
+}
+
+.check-off {
+    cursor: pointer;
+    padding-right: .4em;
+}
+
+.check-off:hover {
+    color: forestgreen;
+
+}
+
+.delete {
+    cursor: pointer;
+    padding-left: .4em;
+}
+
+.delete:hover {
+    color: red;
+}
+
+table {
+    margin: 0 auto;
+    padding: 0;
+}
+
+table td, table th {
+    padding: 0;
+
+
+}
+
+
+/*list general item formatting */
+
+
+
+td:nth-child(2), th:nth-child(2) {
+    min-width: 5em;
+}
+
+td:nth-child(3), th:nth-child(3) {
+    width: 5em;
+}
+
+td:nth-child(4), th:nth-child(4) {
+    width: 5em;
+}
+
+td:nth-child(5), th:nth-child(5) {
+    width: 5em;
+}
+
+td:nth-child(5), th:nth-child(5) {
+    width: 5em;
+}
+
+
+#list input {
+    background-color: inherit;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+input.symbol {
+    width: 30%;
+    text-align: right;
+    margin-top: 2px;
+
+}
+
+input.moneyNumber {
+    width: 60%;
+    float: right;
+    line-height: 160%;
+    vertical-align: center;
+    text-align: left;
+    padding: 0;
+}
+
+input.itemName {
+    width: 80%;
+    text-align: center;
+}
+
+.totalBreak {
+    margin: 2em auto;
+    height: 2px;
+    width: 45%;
+    color: lightblue;
+    background-color: lightblue;
+    border-style: none;
+    display: block;
+}
+
+#totalBox {
+    background-color: lightblue;
+    padding: .3em .1em .3em .3em;
+    min-width: 5em;
+    margin: 0 auto;
+    display: inline-block;
+    text-align: center;
+    overflow: auto;
+}
+
+#totalBox:hover {
+    background-color: lavender;
+}
+
+span.total {
+    /*margin-top: 2em;*/
+    background-color: white;
+    margin: .3em;
+    padding: 0 .2em 0 .3em;
+}
+
+/*Color distraction */
+
+
+svg {
+    stroke: none;
+    fill: none;
+    display: none;
+    position: absolute;
+}
+
+canvas {
+    position: absolute;
+    display: block;
+    margin: -100px -100px;
+    bottom: 30%;
+    right: 30%;
+}
+
+
+
+-webkit-print-color-adjust: exact;
