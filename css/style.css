@@ -126,13 +126,11 @@ button {
 .finished, .finished input{
 	color: lightgray;
 	cursor: pointer;
-	/*background-color: orange;*/
 	text-decoration: line-through;
 
 }
 
 .finished input{
-	opacity: ;
 	color: gray;
 	cursor: pointer;
 	background-color: orange;
